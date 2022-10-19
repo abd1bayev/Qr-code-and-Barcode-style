@@ -1,4 +1,3 @@
-# url-qr-shortener
 Generates a shortened URL link or a QR code with color and shape options
 
 When you execute the main file, it asks a URL and then you choose if you want to generate a shortened url or a QR Code with it.
