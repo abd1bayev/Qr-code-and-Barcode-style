@@ -48,7 +48,7 @@ def edge_color():
 def choose_qr_style():
   st = int(input('''
 Choose a QRcode Style:
-1. Square (Normal) 
+1.Square (Normal) 
 2.Gapped Square
 3.Vertical Bars
 4.Horizontal Bars
