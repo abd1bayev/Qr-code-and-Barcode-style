@@ -8,7 +8,7 @@ from qrcode.image.styles.colormasks import RadialGradiantColorMask
 
 
 #Defines if the QR code is gonna be colorized or not.
-def wants_color() -> bool:
+def   wants_color() -> bool:
   wc = input('''
 Do you want to colorize your QR code?
 1. Yes
@@ -23,14 +23,7 @@ Do you want to colorize your QR code?
     print("Choose a VALID option.\n")
     wc = wants_color()
 
-#Color mask
-def colorized():
-  if wants_color():
-    color=RadialGradiantColorMask(center_color=center_color(), edge_color=edge_color())
-    return color
-  else:
-    nocolor=RadialGradiantColorMask(center_color=(0, 0, 0), edge_color=(0, 0, 0))
-    return nocolor
+
 
 #If colorized, defines the CENTER color
 def center_color():
@@ -43,6 +36,17 @@ def edge_color():
   edge = colorchooser.askcolor(title='Choose border color')
   edge = edge[0]
   return edge
+
+
+#Color mask
+def colorized():
+  if wants_color():
+    color=RadialGradiantColorMask(center_color=center_color(), edge_color=edge_color())
+    return color
+  else:
+    nocolor=RadialGradiantColorMask(center_color=(0, 0, 0), edge_color=(0, 0, 0))
+    return nocolor
+
 
 #Chooses the QR code style.
 def choose_qr_style():
@@ -86,4 +90,7 @@ def save_qr(img):
     imgnumber += 1
   img.save(f'QR{str(imgnumber)}.png')
   print(f'\nGenerated QR{imgnumber}.png on {os.getcwd()}')
+
+
+
 

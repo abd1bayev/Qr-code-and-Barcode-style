@@ -15,7 +15,7 @@ Choose an option:
   if choose == 1:
     shortener(url)
   elif choose == 2:
-    save_qr(gen_qr(url))
+      save_qr(gen_qr(url))
   else:
     print('Choose a VALID option')
     choose= main()
