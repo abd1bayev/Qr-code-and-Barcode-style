@@ -1,6 +1,6 @@
 from django.db import models
 import barcode
-# from barcode.writer import ImageWriter
+from barcode.writer import ImageWriter
 from io import BytesIO
 from django.core.files import File
 # Create your models here.
@@ -17,7 +17,7 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
         EAN = barcode.get_barcode_class('ean13')
-        ean = EAN(f'{self.country_id}{self.manufacturer_id}{self.product_id}', writer=barcode.writer.ImageWriter())
+        ean = EAN(f'{self.country_id}{self.manufacturer_id}{self.product_id}', writer=ImageWriter())
         buffer = BytesIO()
         ean.write(buffer)
         self.barcode.save(f'{self.name}.png', File(buffer), save=False)
